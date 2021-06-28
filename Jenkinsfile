@@ -10,7 +10,9 @@ pipeline {
 	    container('sonar') {
 	      git url:'https://gitlab.com/dexterrorez/dosch.git', branch: 'main'
           checkout scm
+		    dir('dosch'){
           sh "sonar-scanner   -Dsonar.projectKey=cicd-school   -Dsonar.sources=."
+		    }
 	    }
       }
     }
